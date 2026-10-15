@@ -43,4 +43,11 @@ Proyek ini membangun sistem *Point of Sale* (POS) dan *Dashboard Analytics* teri
 
 ## 🗄️ Komponen & Tahapan Database
 
-Proyek ini menerapkan perancangan *database* dari tahap mentah hingga implementasi fisik menggunakan *Relational Database Management System* (RDBMS), dengan tah
+Proyek ini menerapkan perancangan *database* dari tahap mentah hingga implementasi fisik menggunakan *Relational Database Management System* (RDBMS), dengan tahapan berikut:
+
+* **Analisis Data Mentah (Un-normalized Form / UNF):** Pengumpulan sampel struk/kuitansi fisik dari Bakehaus, dilanjutkan dengan identifikasi potensi anomali data (Insert, Update, Delete) dan penentuan *Functional Dependencies*.
+* **Tahapan Normalisasi:** Pemecahan struktur data secara berurutan mulai dari 1NF, 2NF, hingga mencapai 3NF. Tahap ini juga mencakup evaluasi dan justifikasi apakah *Boyce-Codd Normal Form* (BCNF) perlu diterapkan pada *dataset* Bakehaus.
+* **Pemodelan Konseptual & Logikal:** Perancangan *Entity Relationship Diagram* (ERD) menggunakan metode notasi *Crow's Foot* atau *Chen*, yang kemudian dipetakan menjadi *Relational Schema* secara detail.
+* **Implementasi Data Definition Language (DDL):** Penulisan *script* `CREATE TABLE` pada SQL yang dilengkapi dengan penetapan *Primary Keys*, *Foreign Keys*, serta aturan integritas data (*Constraints* seperti `NOT NULL`, `UNIQUE`, `CHECK`, dan `DEFAULT`).
+* **Data Manipulation & Analitik (DML & DQL):** Pengisian data awal tabel (`INSERT`) menggunakan data menu/transaksi otentik Bakehaus. Dilanjutkan dengan eksekusi laporan manajerial melalui *Complex Query* yang mengombinasikan `JOIN`, *Subqueries / Common Table Expressions (CTE)*, serta *Aggregate / Window Functions*.
+* **Justifikasi Arsitektur Database:** Analisis komparatif antara RDBMS dan opsi lain (NoSQL/Vector), merujuk pada prinsip keseimbangan Teorema CAP dan kebutuhan mutlak akan *Consistency* (ACID) dalam menangani pencatatan uang masuk dan sinkronisasi pesanan kasir Bakehaus.
